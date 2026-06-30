@@ -9,4 +9,4 @@ class Bus(models.Model):
         db_table = 'bus'
 
     def __str__(self):
-        return self.plate
+        return f"{self.plate} - Capacity: {self.capacity} - Active: {self.active}"
