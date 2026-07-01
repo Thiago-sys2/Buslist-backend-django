@@ -1,0 +1,65 @@
+from apps.bus.models import Bus
+from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import NotFound
+
+
+class BusService:
+
+    @staticmethod
+    def create(validated_data):
+        
+        plate = validated_data.get["plate"]
+        capacity = validated_data.get["capacity"]
+
+        if Bus.objects.filter(plate=plate).exists():
+            raise ValidationError("There's already a bus with that license plate!")
+        
+        bus = Bus.objects.create(
+            plate=plate,
+            capacity=capacity,
+        )
+
+        return bus
+    
+    @staticmethod
+    def find_by_id(bus_id):
+        
+        try:
+            return Bus.objects.get(id=bus_id)
+        except Bus.DoesNotExist:
+            raise NotFound("Bus not found.")
+        
+    @staticmethod
+    def find_all():
+        return Bus.objects.all()
+    
+    @staticmethod
+    def update(bus_id, validate_data):
+
+        bus = BusService.find_by_id(bus_id)
+        
+        bus.capacity = validate_data.get["capacity"]
+
+        if "active" in validate_data:
+            bus.active = validate_data["active"]
+
+        bus.save()
+
+        return bus
+
+    @staticmethod
+    def desactive(bus_id):
+
+        bus = BusService.find_by_id(bus_id)
+
+        bus.active = False
+        bus.save()
+
+        return bus
+    
+    @staticmethod
+    def delete(bus_id):
+
+        bus = BusService.find_by_id(bus_id)
+
+        bus.delete()
