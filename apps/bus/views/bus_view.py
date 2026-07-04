@@ -24,7 +24,7 @@ class BusCreateView(APIView):
             status=status.HTTP_201_CREATED
         )
     
-class BusDetailsView(APIView):
+class BusDetailView(APIView):
 
     def get(self, request, id):
 
