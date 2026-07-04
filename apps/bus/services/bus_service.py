@@ -8,8 +8,8 @@ class BusService:
     @staticmethod
     def create(validated_data):
         
-        plate = validated_data.get["plate"]
-        capacity = validated_data.get["capacity"]
+        plate = validated_data["plate"]
+        capacity = validated_data["capacity"]
 
         if Bus.objects.filter(plate=plate).exists():
             raise ValidationError("There's already a bus with that license plate!")
@@ -38,7 +38,7 @@ class BusService:
 
         bus = BusService.find_by_id(bus_id)
         
-        bus.capacity = validate_data.get["capacity"]
+        bus.capacity = validate_data["capacity"]
 
         if "active" in validate_data:
             bus.active = validate_data["active"]
