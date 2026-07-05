@@ -44,7 +44,7 @@ class BusListView(APIView):
 
         return Response(serializer.data)
     
-class BusUpdate(APIView):
+class BusUpdateView(APIView):
     
     def put(self, request, id):
 
@@ -61,7 +61,7 @@ class BusUpdate(APIView):
 
         return Response(response.data)
     
-class BusDesactiveView(APIView):
+class BusDeactivateView(APIView):
     
     def patch(self, request, id):
 
@@ -71,6 +71,16 @@ class BusDesactiveView(APIView):
             status=status.HTTP_204_NO_CONTENT
         )
     
+class BusReactivateView(APIView):
+
+    def patch(self, request, id):
+
+        BusService.reactivate(id)
+
+        return Response(
+            status=status.HTTP_204_NO_CONTENT
+        )
+
 class BusDeleteView(APIView):
 
     def delete(self, request, id):
