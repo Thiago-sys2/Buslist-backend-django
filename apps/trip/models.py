@@ -1,8 +1,8 @@
 from django.db import models
 
-class TripPerdiod(models.TextChoices):
+class TripPerdod(models.TextChoices):
     MORNING = 'MORNING', 'Morning'
-    AFTERNOON = 'AFTERNOON', 'Afternoon',
+    AFTERNOON = 'AFTERNOON', 'Afternoon'
     NIGHT = 'NIGHT', 'Night'
 
 class Trip(models.Model):
@@ -10,7 +10,7 @@ class Trip(models.Model):
 
     period = models.CharField(
         max_length=20,
-        choices=TripPerdiod.choices
+        choices=TripPerdod.choices
     )
 
     #OneToMany e ManyToOne -> Só faz no lado do ManyToOne/Unilateral
@@ -24,4 +24,4 @@ class Trip(models.Model):
         db_table = 'trips'
 
     def __str__(self):
-        return f"(self.date) - {self.period}"
+        return f"{self.date} - {self.period}"

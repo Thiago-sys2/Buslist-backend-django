@@ -17,9 +17,4 @@ class AttendanceResponseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Attendance
-        fields = [
-            'student_id',
-            'name_student',
-            'institution',
-            'gift'
-        ]
+        fields = ['student_id', 'name_student', 'institution', 'gift']

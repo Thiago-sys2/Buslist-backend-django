@@ -5,9 +5,4 @@ class BusResponseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bus
-        fields = [
-            'id',
-            'plate',
-            'capacity',
-            'active'
-        ]
+        fields = ['id', 'plate', 'capacity', 'active']
