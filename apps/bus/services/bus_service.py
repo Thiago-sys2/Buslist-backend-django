@@ -58,6 +58,16 @@ class BusService:
         return bus
     
     @staticmethod
+    def reactivate(bus_id):
+
+        bus = BusService.find_by_id(bus_id)
+
+        bus.active = True
+        bus.save()
+
+        return bus
+    
+    @staticmethod
     def delete(bus_id):
 
         bus = BusService.find_by_id(bus_id)

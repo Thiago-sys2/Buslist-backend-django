@@ -46,7 +46,7 @@ class TripDetailView(APIView):
 
         return Response(serializer.data)
     
-class RemoveStudentFromTripView(APIView):
+class TripRemoveStudentView(APIView):
 
     def delete(self, request, trip_id, student_id):
         
