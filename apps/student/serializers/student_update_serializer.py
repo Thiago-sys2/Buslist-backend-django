@@ -6,10 +6,7 @@ class StudentUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Student
-        fields = [
-            'name',
-            'institution'
-        ]
+        fields = ['name', 'institution']
 
     def validate_name(self, value):
         value = value.strip()

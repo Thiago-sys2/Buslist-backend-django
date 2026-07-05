@@ -6,9 +6,4 @@ class StudentResponseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Student
-        fields = [
-            'id'
-            'name',
-            'cpf',
-            'institution'
-        ]
+        fields = ['id', 'name', 'cpf', 'institution']
