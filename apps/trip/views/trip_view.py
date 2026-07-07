@@ -45,7 +45,17 @@ class TripDetailView(APIView):
         serializer = TripResponseSerializer(trip)
 
         return Response(serializer.data)
-    
+
+class TripListView(APIView):
+
+    def get(self, request):
+
+        trips = TripService.fin_all()
+
+        serializer = TripResponseSerializer(trips, many=True)
+
+        return Response(serializer.data)
+
 class TripRemoveStudentView(APIView):
 
     def delete(self, request, trip_id, student_id):

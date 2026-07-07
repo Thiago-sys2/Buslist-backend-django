@@ -21,7 +21,7 @@ urlpatterns = [
     ),
 
     path(
-        "trip;<int:trip_id>/count/",
+        "trip/<int:trip_id>/count/",
         AttendanceCountByTripView.as_view(),
         name="attendance-count",
     ),

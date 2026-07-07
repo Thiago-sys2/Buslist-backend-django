@@ -5,7 +5,7 @@ class BusUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bus
-        fields = ['capacity', 'active']
+        fields = ['capacity', 'plate']
 
     def validate_capacity(self, value):
         if value < 20:
