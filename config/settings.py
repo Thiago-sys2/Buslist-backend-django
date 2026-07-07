@@ -44,7 +44,19 @@ INSTALLED_APPS = [
     'apps.trip',
     'apps.student',
     'apps.attendance',
+
+    "drf_spectacular",
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "BusList API",
+    "DESCRIPTION": "API for managing buses, students, trips and attendance.",
+    "VERSION": "1.0.0",
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
