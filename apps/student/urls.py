@@ -17,7 +17,7 @@ urlpatterns = [
     ),
 
     path(
-        "<int:id>",
+        "<int:id>/",
         StudentDetailView.as_view(),
         name="student-detail",
     ),

@@ -1,6 +1,5 @@
 from apps.attendance.models import Attendance
 from apps.attendance.services.attendance_service import AttendanceService
-from apps.bus.services.bus_service import BusService
 from rest_framework.exceptions import ValidationError, NotFound
 
 from apps.student.services.student_service import StudentService
@@ -10,8 +9,8 @@ class TripService:
 
     @staticmethod
     def create(validate_data):
-
-        bus = BusService.find_by_id(validate_data["bus_id"])
+        
+        bus = validate_data["bus"]
 
         if not bus.active:
             raise ValidationError("Bus is inactive.")
@@ -31,7 +30,10 @@ class TripService:
             return Trip.objects.get(id=trip_id)
         except Trip.DoesNotExist:
             raise NotFound("Trip not found.")
-        
+    
+    @staticmethod
+    def fin_all():
+        return Trip.objects.all()
     
     @staticmethod
     def add_student(trip_id, student_id):
@@ -56,7 +58,7 @@ class TripService:
         return trip
     
     @staticmethod
-    def remove_student_from_trip(student_id, trip_id):
+    def remove_student_from_trip(trip_id, student_id):
 
         attendance = AttendanceService.find_by_student_and_trip(student_id, trip_id)
 

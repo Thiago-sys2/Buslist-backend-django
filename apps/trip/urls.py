@@ -4,6 +4,7 @@ from apps.trip.views.trip_view import (
     TripCreateView,
     TripAddStudentView,
     TripDetailView,
+    TripListView,
     TripRemoveStudentView,
 )
 
@@ -25,6 +26,12 @@ urlpatterns = [
         "<int:id>/",
         TripDetailView.as_view(),
         name="trip-details",
+    ),
+
+    path(
+        "all/",
+        TripListView.as_view(),
+        name="trip_list"
     ),
 
     path(

@@ -37,11 +37,24 @@ class BusService:
     def update(bus_id, validate_data):
 
         bus = BusService.find_by_id(bus_id)
-        
-        bus.capacity = validate_data["capacity"]
 
-        if "active" in validate_data:
-            bus.active = validate_data["active"]
+        if not bus.active:
+            raise ValidationError(
+                "Cannot update an inactive bus."
+            )
+        
+        if "plate" in validate_data:
+            plate = validate_data["plate"]
+
+            if Bus.objects.filter(plate=plate).exclude(id=bus.id).exists(): 
+                raise ValidationError(
+                    "There's already a bus with that license plate."
+                )
+            
+            bus.plate = plate
+        
+        if "capacity" in validate_data:
+            bus.capacity = validate_data["capacity"]
 
         bus.save()
 
