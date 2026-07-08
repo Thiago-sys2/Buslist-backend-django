@@ -1,5 +1,5 @@
 from apps.attendance.models import Attendance
-from rest_framework.exceptions import NotFound
+from core.exceptions.attendance_exceptions import AttendanceNotFoundException
 
 class AttendanceService:
 
@@ -9,9 +9,7 @@ class AttendanceService:
         try:
             return Attendance.objects.get(trip_id=trip_id, student_id=student_id)
         except Attendance.DoesNotExist:
-            raise NotFound(
-                "Attendance not found for this student in this trip."
-            )
+            raise AttendanceNotFoundException()
         
     @staticmethod
     def find_by_trip(trip_id):

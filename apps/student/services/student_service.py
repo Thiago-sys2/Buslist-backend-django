@@ -1,7 +1,5 @@
-from rest_framework.exceptions import NotFound, ValidationError
-
 from apps.student.models import Student
-
+from core.exceptions.student_exceptions import StudentAlreadyExistsCPFException, StudentNotFoundException
 
 class StudentService:
 
@@ -11,9 +9,7 @@ class StudentService:
         cpf = validated_data["cpf"]
 
         if Student.objects.filter(cpf=cpf).exists():
-            raise ValidationError(
-                "CPF already registered."
-            )
+            raise StudentAlreadyExistsCPFException()
 
         student = Student.objects.create(**validated_data)
 
@@ -26,9 +22,7 @@ class StudentService:
             return Student.objects.get(id=student_id)
 
         except Student.DoesNotExist:
-            raise NotFound(
-                "Student not found."
-            )
+            raise StudentNotFoundException()
 
     @staticmethod
     def find_all():
