@@ -1,7 +1,5 @@
 from apps.bus.models import Bus
-from rest_framework.exceptions import ValidationError
-from rest_framework.exceptions import NotFound
-
+from core.exceptions.bus_exceptions import BusAlreadyExistsException, BusNotFoundException, BusUpdateInactiveException
 
 class BusService:
 
@@ -12,7 +10,7 @@ class BusService:
         capacity = validated_data["capacity"]
 
         if Bus.objects.filter(plate=plate).exists():
-            raise ValidationError("There's already a bus with that license plate!")
+            raise BusAlreadyExistsException()
         
         bus = Bus.objects.create(
             plate=plate,
@@ -27,7 +25,7 @@ class BusService:
         try:
             return Bus.objects.get(id=bus_id)
         except Bus.DoesNotExist:
-            raise NotFound("Bus not found.")
+            raise BusNotFoundException()
         
     @staticmethod
     def find_all():
@@ -39,17 +37,13 @@ class BusService:
         bus = BusService.find_by_id(bus_id)
 
         if not bus.active:
-            raise ValidationError(
-                "Cannot update an inactive bus."
-            )
+            raise BusUpdateInactiveException()
         
         if "plate" in validate_data:
             plate = validate_data["plate"]
 
             if Bus.objects.filter(plate=plate).exclude(id=bus.id).exists(): 
-                raise ValidationError(
-                    "There's already a bus with that license plate."
-                )
+                raise BusAlreadyExistsException()
             
             bus.plate = plate
         
