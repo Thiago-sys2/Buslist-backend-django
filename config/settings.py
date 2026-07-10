@@ -44,9 +44,12 @@ INSTALLED_APPS = [
     'apps.trip',
     'apps.student',
     'apps.attendance',
+    'apps.user',
 
     "drf_spectacular",
 ]
+
+AUTH_USER_MODEL = "user.User"
 
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
