@@ -19,3 +19,7 @@ class ErrorMessages:
 
     #ATTENDANCE
     ATTENDANCE_NOT_FOUND = "Attendance not found for this student in this trip."
+
+    #USER
+    USER_NOT_FOUND = "User not found."
+    EMAIL_ALREADY_EXISTS = "There's already a user with this email."
