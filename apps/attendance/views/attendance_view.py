@@ -32,7 +32,7 @@ class AttendanceDetailView(APIView):
 class AttendanceListByTripView(APIView):
 
     @extend_schema(
-            tags=["Attendace"],
+            tags=["Attendance"],
             summary="List attendances by trip",
             description="Returns all attendance records for a specific trip.",
             responses={
