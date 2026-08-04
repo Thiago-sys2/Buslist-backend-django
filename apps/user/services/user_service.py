@@ -10,7 +10,7 @@ class UserService:
         email = validated_data["email"].strip().lower()
 
         if User.objects.filter(email=email).exists():
-            raise UserNotFoundException()
+            raise EmailAlreadyExistsException()
         
         user = User(
             name = validated_data["name"].strip(),
@@ -63,7 +63,5 @@ class UserService:
 
         user = UserService.find_by_id(user_id)
 
-        user.is_active = False
-
-        user.save()
+        user.delete()
     
