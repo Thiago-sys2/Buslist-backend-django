@@ -2,12 +2,12 @@ from django.urls import path
 
 from apps.bus.views.bus_view import (
     BusCreateView,
-    BusDetailView,
-    BusListView,
-    BusUpdateView,
     BusDeactivateView,
     BusDeleteView,
+    BusDetailView,
+    BusListView,
     BusReactivateView,
+    BusUpdateView,
 )
 
 urlpatterns = [

@@ -1,9 +1,9 @@
 from django.urls import path
 
 from apps.attendance.views.attendance_view import (
+    AttendanceCountByTripView,
     AttendanceDetailView,
     AttendanceListByTripView,
-    AttendanceCountByTripView,
 )
 
 urlpatterns = [

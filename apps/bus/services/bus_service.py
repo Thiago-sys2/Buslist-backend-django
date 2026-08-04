@@ -1,5 +1,10 @@
 from apps.bus.models import Bus
-from core.exceptions.bus_exceptions import BusAlreadyExistsException, BusNotFoundException, BusUpdateInactiveException
+from core.exceptions.bus_exceptions import (
+    BusAlreadyExistsException,
+    BusNotFoundException,
+    BusUpdateInactiveException,
+)
+
 
 class BusService:
 

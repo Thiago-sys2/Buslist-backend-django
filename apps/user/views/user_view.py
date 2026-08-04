@@ -1,14 +1,15 @@
-from drf_spectacular.utils import extend_schema, OpenApiResponse
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-
 from typing import Any, cast
+
+from drf_spectacular.utils import OpenApiResponse, extend_schema
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from apps.user.serializers.user_create_serializer import UserCreateSerializer
 from apps.user.serializers.user_response_serializer import UserResponseSerializer
 from apps.user.serializers.user_update_serializer import UserUpdateSerializer
 from apps.user.services.user_service import UserService
+
 
 class UserCreateView(APIView):
 

@@ -1,6 +1,9 @@
-from core.exceptions.user_exceptions import UserNotFoundException, EmailAlreadyExistsException
-
 from apps.user.models import User, UserRole
+from core.exceptions.user_exceptions import (
+    EmailAlreadyExistsException,
+    UserNotFoundException,
+)
+
 
 class UserService:
 

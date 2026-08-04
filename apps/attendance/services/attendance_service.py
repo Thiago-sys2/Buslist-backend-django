@@ -1,6 +1,7 @@
 from apps.attendance.models import Attendance
 from core.exceptions.attendance_exceptions import AttendanceNotFoundException
 
+
 class AttendanceService:
 
     @staticmethod

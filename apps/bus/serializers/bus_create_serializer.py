@@ -1,5 +1,7 @@
 from rest_framework import serializers
+
 from apps.bus.models import Bus
+
 
 class BusCreateSerializer(serializers.ModelSerializer):
 

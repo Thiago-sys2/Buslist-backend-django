@@ -1,15 +1,13 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from drf_spectacular.utils import OpenApiResponse, extend_schema
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from apps.trip.serializers.trip_create_serializer import TripCreateSerializer
 from apps.trip.serializers.trip_response_serializer import TripResponseSerializer
 from apps.trip.services.trip_service import TripService
 
-from drf_spectacular.utils import (
-    extend_schema,
-    OpenApiResponse
-)
+
 class TripCreateView(APIView):
 
     @extend_schema(

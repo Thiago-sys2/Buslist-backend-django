@@ -1,6 +1,8 @@
 from rest_framework import serializers
+
 from apps.attendance.models import Attendance
 from apps.student.models import Student
+
 
 class AttendanceUpdateSerializer(serializers.Serializer):
 

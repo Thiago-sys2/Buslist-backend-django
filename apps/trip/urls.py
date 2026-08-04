@@ -1,8 +1,8 @@
 from django.urls import path
 
 from apps.trip.views.trip_view import (
-    TripCreateView,
     TripAddStudentView,
+    TripCreateView,
     TripDetailView,
     TripListView,
     TripRemoveStudentView,

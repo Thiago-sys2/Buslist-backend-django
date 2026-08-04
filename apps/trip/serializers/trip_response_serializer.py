@@ -1,7 +1,9 @@
 from rest_framework import serializers
+
 from apps.attendance.models import Attendance
 from apps.bus.serializers.bus_response_serializer import BusResponseSerializer
 from apps.trip.models import Trip
+
 
 class TripResponseSerializer(serializers.ModelSerializer):
     
