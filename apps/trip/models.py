@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class TripPerdod(models.TextChoices):
     MORNING = 'MORNING', 'Morning'
     AFTERNOON = 'AFTERNOON', 'Afternoon'

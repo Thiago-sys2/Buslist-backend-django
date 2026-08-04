@@ -1,11 +1,11 @@
 from apps.attendance.models import Attendance
 from apps.attendance.services.attendance_service import AttendanceService
-
 from apps.student.services.student_service import StudentService
 from apps.trip.models import Trip
 from core.exceptions.bus_exceptions import BusFullException, BusInactiveException
 from core.exceptions.student_exceptions import StudentAlreadyInTripException
 from core.exceptions.trip_exceptions import TripNotFoundException
+
 
 class TripService:
 

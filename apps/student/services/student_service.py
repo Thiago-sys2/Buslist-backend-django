@@ -1,5 +1,9 @@
 from apps.student.models import Student
-from core.exceptions.student_exceptions import StudentAlreadyExistsCPFException, StudentNotFoundException
+from core.exceptions.student_exceptions import (
+    StudentAlreadyExistsCPFException,
+    StudentNotFoundException,
+)
+
 
 class StudentService:
 

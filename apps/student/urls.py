@@ -2,10 +2,10 @@ from django.urls import path
 
 from apps.student.views.student_view import (
     StudentCreateView,
+    StudentDeleteView,
     StudentDetailView,
     StudentListView,
     StudentUpdateView,
-    StudentDeleteView,
 )
 
 urlpatterns = [

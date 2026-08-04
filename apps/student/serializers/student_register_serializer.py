@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+
 class StudentRegisterSerializer(serializers.Serializer):
 
     name = serializers.CharField()

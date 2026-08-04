@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+
 from apps.user.managers.user_manager import UserManager
+
 
 class UserRole(models.TextChoices):
     ADMIN = "ADMIN", "Admin"

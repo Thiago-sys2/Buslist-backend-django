@@ -1,16 +1,15 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from drf_spectacular.utils import OpenApiResponse, extend_schema
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from apps.student.serializers.student_create_serializer import StudentCreateSerializer
-from apps.student.serializers.student_response_serializer import StudentResponseSerializer
+from apps.student.serializers.student_response_serializer import (
+    StudentResponseSerializer,
+)
 from apps.student.serializers.student_update_serializer import StudentUpdateSerializer
 from apps.student.services.student_service import StudentService
 
-from drf_spectacular.utils import(
-    extend_schema,
-    OpenApiResponse
-)
 
 class StudentCreateView(APIView):
 

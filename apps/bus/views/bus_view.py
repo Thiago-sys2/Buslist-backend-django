@@ -1,16 +1,13 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from drf_spectacular.utils import OpenApiResponse, extend_schema
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from apps.bus.serializers.bus_create_serializer import BusCreateSerializer
 from apps.bus.serializers.bus_response_serializer import BusResponseSerializer
 from apps.bus.serializers.bus_update_serializer import BusUpdateSerializer
 from apps.bus.services.bus_service import BusService
 
-from drf_spectacular.utils import (
-    extend_schema,
-    OpenApiResponse
-)
 
 class BusCreateView(APIView):
 

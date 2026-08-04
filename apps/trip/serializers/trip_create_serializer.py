@@ -1,7 +1,8 @@
 from rest_framework import serializers
 
-from apps.trip.models import Trip
 from apps.bus.models import Bus
+from apps.trip.models import Trip
+
 
 class TripCreateSerializer(serializers.ModelSerializer):
 

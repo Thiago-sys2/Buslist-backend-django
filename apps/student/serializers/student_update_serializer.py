@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from apps.student.models import Student
 
+
 class StudentUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
