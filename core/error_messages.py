@@ -23,3 +23,4 @@ class ErrorMessages:
     #USER
     USER_NOT_FOUND = "User not found."
     EMAIL_ALREADY_EXISTS = "There's already a user with this email."
+    INVALID_CREDENTIALS = "Invalid credential."

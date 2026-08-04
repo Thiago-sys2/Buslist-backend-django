@@ -10,3 +10,7 @@ class UserNotFoundException(APIException):
 class EmailAlreadyExistsException(APIException):
     status_code = status.HTTP_409_CONFLICT
     default_detail = ErrorMessages.EMAIL_ALREADY_EXISTS
+
+class InvalidCredentialsException(APIException):
+    status_code = status.HTTP_409_CONFLICT,
+    default_detail = ErrorMessages.INVALID_CREDENTIALS
