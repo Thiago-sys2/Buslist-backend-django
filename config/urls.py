@@ -14,6 +14,8 @@ urlpatterns = [
     path("trip/", include("apps.trip.urls")),
     path("user/", include("apps.user.urls")),
 
+    path("auth/", include("apps.user.auth_urls")),
+
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
 
     path(
