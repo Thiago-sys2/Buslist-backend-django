@@ -4,7 +4,7 @@ from rest_framework import status
 from core.error_messages import ErrorMessages
 
 class UserNotFoundException(APIException):
-    status_codo = status.HTTP_404_NOT_FOUND
+    status_code = status.HTTP_404_NOT_FOUND
     default_detail = ErrorMessages.USER_NOT_FOUND
 
 class EmailAlreadyExistsException(APIException):
