@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from apps.user.serializers.login_serializer import LoginSerializer
+from apps.user.serializers.refresh_serializer import RefreshSerializer
 from apps.user.serializers.register_serializer import RegisterSerializer
 from apps.user.serializers.token_response_serializer import TokenResponseSerializer
 from apps.user.services.auth_service import AuthService
@@ -61,5 +62,30 @@ class LoginView(APIView):
 
         return Response(
             response_serializer.data,
+            status=status.HTTP_200_OK
+        )
+
+class RefreshView(APIView):
+
+    @extend_schema(
+            tags=["Authentication"],
+            summary="Refresh access token",
+            description="Generates a new access token using a valid refresh token.",
+            request=RefreshSerializer,
+            responses={
+                200: OpenApiResponse(description="Access token generated successfully."),
+                401: OpenApiResponse(description="Invalid or expired refresh token."),
+        },
+    )
+    def post(self, request):
+
+        serializer = RefreshSerializer(data=request.data)
+
+        serializer.is_valid(raise_exception=True)
+
+        result = AuthService.refresh(serializer.validated_data)
+
+        return Response(
+            result,
             status=status.HTTP_200_OK
         )

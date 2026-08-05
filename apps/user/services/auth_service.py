@@ -43,4 +43,12 @@ class AuthService:
             "user": user
         }
 
+    @staticmethod
+    def refresh(validated_data):
+
+        refresh = RefreshToken(validated_data["refresh"])
+
+        return {
+            "access": str(refresh.access_token)
+        }
         
