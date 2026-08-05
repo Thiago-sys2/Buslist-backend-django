@@ -62,7 +62,7 @@ class TripService:
     @staticmethod
     def remove_student_from_trip(trip_id, student_id):
 
-        attendance = AttendanceService.find_by_student_and_trip(student_id, trip_id)
+        attendance = AttendanceService.find_by_student_and_trip(trip_id, student_id)
 
         attendance.delete()
 
