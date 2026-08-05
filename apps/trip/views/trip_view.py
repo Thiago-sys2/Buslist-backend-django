@@ -6,9 +6,12 @@ from rest_framework.views import APIView
 from apps.trip.serializers.trip_create_serializer import TripCreateSerializer
 from apps.trip.serializers.trip_response_serializer import TripResponseSerializer
 from apps.trip.services.trip_service import TripService
+from apps.user.permissions.role_permissions import IsAdmin
 
 
 class TripCreateView(APIView):
+
+    permission_classes = [IsAdmin]
 
     @extend_schema(
             tags=["Trip"],

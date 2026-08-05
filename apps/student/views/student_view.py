@@ -9,9 +9,12 @@ from apps.student.serializers.student_response_serializer import (
 )
 from apps.student.serializers.student_update_serializer import StudentUpdateSerializer
 from apps.student.services.student_service import StudentService
+from apps.user.permissions.role_permissions import IsAdmin
 
 
 class StudentCreateView(APIView):
+
+    permission_classes = [IsAdmin]
 
     @extend_schema(
             tags=["Student"],
@@ -81,6 +84,8 @@ class StudentListView(APIView):
     
 class StudentUpdateView(APIView):
 
+    permission_classes = [IsAdmin]
+
     @extend_schema(
             tags=["Student"],
             summary="Update student",
@@ -109,6 +114,8 @@ class StudentUpdateView(APIView):
         return Response(response.data)
     
 class StudentDeleteView(APIView):
+
+    permission_classes = [IsAdmin]
 
     @extend_schema(
             tags=["Student"],

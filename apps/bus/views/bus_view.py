@@ -7,9 +7,12 @@ from apps.bus.serializers.bus_create_serializer import BusCreateSerializer
 from apps.bus.serializers.bus_response_serializer import BusResponseSerializer
 from apps.bus.serializers.bus_update_serializer import BusUpdateSerializer
 from apps.bus.services.bus_service import BusService
+from apps.user.permissions.role_permissions import IsAdmin
 
 
 class BusCreateView(APIView):
+
+    permission_classes = [IsAdmin]
 
     @extend_schema(
             tags=["Bus"],
@@ -80,6 +83,8 @@ class BusListView(APIView):
     
 class BusUpdateView(APIView):
     
+    permission_classes = [IsAdmin]
+
     @extend_schema(
             tags=["Bus"],
             summary="Update bus",
@@ -110,6 +115,8 @@ class BusUpdateView(APIView):
     
 class BusDeactivateView(APIView):
     
+    permission_classes = [IsAdmin]
+
     @extend_schema(
             tags=["Bus"],
             summary="Deactivate bus",
@@ -130,6 +137,8 @@ class BusDeactivateView(APIView):
     
 class BusReactivateView(APIView):
 
+    permission_classes = [IsAdmin]
+
     @extend_schema(
             tags=["Bus"],
             summary="Activate bus",
@@ -149,6 +158,8 @@ class BusReactivateView(APIView):
         )
 
 class BusDeleteView(APIView):
+
+    permission_classes = [IsAdmin]
 
     @extend_schema(
             tags=["Bus"],
