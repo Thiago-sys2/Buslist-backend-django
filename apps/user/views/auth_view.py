@@ -1,5 +1,6 @@
 from drf_spectacular.utils import OpenApiResponse, extend_schema
 from rest_framework import status
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -11,6 +12,8 @@ from apps.user.services.auth_service import AuthService
 
 
 class RegisterView(APIView):
+
+    permission_classes = [AllowAny]
 
     @extend_schema(
             tags=["Authentication"],
@@ -40,6 +43,8 @@ class RegisterView(APIView):
 
 class LoginView(APIView):
 
+    permission_classes = [AllowAny]
+
     @extend_schema(
             tags=["Authentication"],
             summary="Login",
@@ -66,6 +71,8 @@ class LoginView(APIView):
         )
 
 class RefreshView(APIView):
+
+    permission_classes = [AllowAny]
 
     @extend_schema(
             tags=["Authentication"],
