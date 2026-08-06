@@ -13,5 +13,5 @@ class EmailAlreadyExistsException(APIException):
     default_detail = ErrorMessages.EMAIL_ALREADY_EXISTS
 
 class InvalidCredentialsException(APIException):
-    status_code = status.HTTP_409_CONFLICT,
+    status_code = status.HTTP_401_UNAUTHORIZED
     default_detail = ErrorMessages.INVALID_CREDENTIALS
