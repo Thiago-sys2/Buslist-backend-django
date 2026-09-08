@@ -98,7 +98,7 @@ Primeiro, clone o repositório do projeto:
 
 Entre na pasta do projeto:
 
-```cd Buslist-backend```
+```cd Buslist-backend-backend```
 
 ## 3. Estrutura do projeto
 
@@ -182,7 +182,7 @@ Docker Compose
 ├── buslist-django
 │   └── Django API
 │
-└── buslist-postgres
+└── buslist-django-postgres
     └── PostgreSQL
 ```
 
@@ -199,7 +199,7 @@ Exemplo:
 
 ```
 buslist-django
-buslist-postgres
+buslist-django-postgres
 ```
 
 Também é possível visualizar todos os containers:
@@ -209,19 +209,17 @@ Também é possível visualizar todos os containers:
 
 ## 8. Executando as migrations
 
-As migrations são responsáveis por criar e atualizar a estrutura das tabelas do banco de dados de acordo com os models do Django.
+As migrations são responsáveis por criar e atualizar a estrutura das As migrations são responsáveis por criar e atualizar a estrutura das tabelas do banco de dados de acordo com os models do Django.
 
-Entre no container Django:
+Com os containers da aplicação em execução, execute o comando abaixo:
 
-```docker exec -it buslist-django bash```
+```docker exec -it buslist-django python manage.py migrate```
 
-Depois execute:
+Após a execução, o Django aplicará todas as migrations pendentes no banco de dados.
 
-```python manage.py migrate```
+Para verificar o estado das migrations:
 
-Para verificar as migrations:
-
-```python manage.py showmigrations```
+```docker exec -it buslist-django python manage.py showmigrations```
 
 As migrations aplicadas serão indicadas por:
 
