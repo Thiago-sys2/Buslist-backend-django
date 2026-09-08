@@ -2,7 +2,7 @@ services:
 
   db:
     image: postgres:17
-    container_name: buslist-postgres
+    container_name: buslist-django-postgres
     restart: always
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
